@@ -1,47 +1,71 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+import {ref, computed} from 'vue'
+
+let counter = ref(0);
+const arrayFavoritos = ref([])
+const increment = ()=>{
+  console.log("aumentar contador")
+  counter.value ++;
+}
+
+const decrement = ()=>{
+  console.log("disminuir contador")
+  counter.value --;
+}
+
+const reset = ()=>{
+  console.log("disminuir contador")
+  counter.value = 0;
+}
+ 
+ const classCounter = computed(()=>{
+  if (counter.value === 0) {
+    return 'zero'
+  }
+  if (counter.value> 0 ){
+    return 'positive'
+  }
+  if(counter.value < 0){
+    return 'negative'
+  }
+ })
+
+ const add = ()=>{
+  arrayFavoritos.value.push(counter.value)
+ }
+
+ const bloquear = computed (()=>{
+    const numSearch = arrayFavoritos.value.find(num => num === counter.value)
+    if(numSearch === 0){
+      return true
+    }
+    return numSearch ? true : false
+ })
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
+  <h1 :class="classCounter">{{counter}}</h1>
+  <button @:click="increment">Aumentar contador</button>
+  <button @:click="decrement">Disminuir contador</button>
+  <button @:click="reset">Resetear</button>
+  <button @click="add" :disabled="bloquear">Add</button>
+  <ul>
+    <li v-for="(num, index) in arrayFavoritos" :key="index">
+      {{num}}
+    </li>
+  </ul>
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
+<style>
+.positive{
+  color: green;
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
+.negative{
+  color: red;
 }
 
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
+.zero {
+  color: aqua;
 }
 </style>
