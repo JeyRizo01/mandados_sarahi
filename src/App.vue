@@ -10,5 +10,6 @@ import{Nav, Alert} from '@/components';
 </template>
 
 <style>
+
  @import '@/assets/base.css';
 </style>
