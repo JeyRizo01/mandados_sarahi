@@ -11,20 +11,19 @@
               <h2 class="fw-bold mb-2 text-uppercase">Inicio de Sesion</h2>
               <p class="text-white-50 mb-5">Por favor ingrese su Usuario y Contraseña</p>
 
-              <form action="" v-on:submit.prevent="login">
-              <div class="form-outline form-white mb-4">
-                <input type="email" id="typeEmailX"  class="form-control form-control-lg" v-model="usuario"/>
-                <label class="form-label" for="typeEmailX" id="usuario">Email</label>
+              <form  v-on:submit.prevent="login">
+              <div class="form-outline form-white mb-3">
+                <label class="form-label" for="typeEmailX" id="usuario">Correo</label>
+                <input type="email" id="typeEmailX"  class="form-control  form-control-lg form-floating" placeholder="Correo" v-model="usuario"/>
               </div>
-              
-              <div class="form-outline form-white mb-4">
-                <input type="password" id="typePasswordX" class="form-control form-control-lg" v-model="password"/>
+              <div class="form-outline form-white mb-3">
                 <label class="form-label" for="typePasswordX" id="password" >Contraseña</label>
+                <input type="password" id="typePasswordX" class="form-control form-control-lg" placeholder="Contraseña" v-model="password"/>
               </div>
               
               <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!">¿Olvido su contraseña?</a></p>
               
-              <button class="btn btn-outline-light btn-lg px-5" type="submit">Inicio de Sesion</button>
+              <button class="btn-lg px-5 btn btn-success" type="submit">Inicio de Sesion</button>
               </form>
 
               <div class="d-flex justify-content-center text-center mt-4 pt-1">
