@@ -4,7 +4,7 @@ import{Home_login} from '@/views';
 </script>
 
 <template>
-   <Home_login/>
+   <Home_login />
 </template>
 
 <style>

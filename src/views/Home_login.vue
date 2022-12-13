@@ -34,7 +34,7 @@
               </div>  
             </div>
             <div>
-              <p class="mb-0">¿No tienes cuenta? <a href="#!" class="text-white-50 fw-bold">Registrate</a>
+              <p class="mb-0">¿No tienes cuenta? <a href="Register" class="text-white-50 fw-bold">Registrate</a>
               </p>
             </div>
           </div>
@@ -46,6 +46,7 @@
 </template>
 
 <script>
+  import{Register} from '@/views';
   export default{
     name: 'Home_login',
     components:{
